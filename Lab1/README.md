@@ -6,11 +6,6 @@ Due: May 18 (by 11:59 PM on Monday)
 
 Purpose: This lab explores the use of LINQ to query an array of objects.
 
-Access the CoB Virtual Computer Lab as directed in class. You should have access to a Persona-SQL virtual desktop and will use your ULink credentials to login. If you are not using a Persona-SQL desktop, no information saved to the virtual desktop's file system will be retained after you log out.
-Open Visual Studio 2012 as directed in class using the Start menu. Under All Programs, Microsoft Visual Studio 2012, Visual Studio 2012.
-If you are not using a Persona-SQL desktop (or this is your first time opening Visual Studio 2012 with a Persona-SQL desktop), the Choose Default Environment Settings dialog box will appear. If so, choose the Visual C# Development Settings and None for the Local Help Documentation settings. Next, click on the Start Visual Studio button. This initial configuration may take a few minutes to complete. When using a Persona-SQL virtual desktop, these settings will be retained for you on later logins.
-Complete Exercise 9-3 (p. 370). Use the attached file "Lab1Start.zip" as your starting point.
-
 "Class Invoice includes four properties— a PartNumber (type int), a PartDescription (type string), a Quantity of the item being purchased (type int) and a Price (type decimal). Perform the following queries on the array of Invoice objects and displays the results:
 
 a) Use LINQ to sort the Invoice objects by PartDescription.
