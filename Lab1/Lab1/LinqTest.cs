@@ -22,6 +22,29 @@ namespace Lab1
                 new Invoice( 56, "Jig saw", 21, 11M ), 
                 new Invoice( 3, "Wrench", 34, 7.5M ) };
 
+            //display all invoices
+            Console.WriteLine("Original array:");
+            foreach (var item in invoices)
+                Console.WriteLine(item);
+
+            //a) Use LINQ to sort the Invoice objects by PartDescription.
+            var partDescriptionSorted =
+                from i in invoices
+                orderby i.PartDescription
+                select i;
+
+            //header
+            Console.WriteLine("\nFirst part description when sorted by part description");
+
+            // attempt to display the first result of the above LINQ query
+            if (partDescriptionSorted.Any())
+                foreach( var item in partDescriptionSorted )
+                Console.WriteLine(item); 
+            else
+                Console.WriteLine("not found");
+
+            //b) Use LINQ to sort the Invoice objects by Price.
+
         }
     }
 }
