@@ -79,6 +79,26 @@ namespace Lab1
             else
                 Console.WriteLine("not found");
 
+
+
+            //d)Use LINQ to select from each Invoice the PartDescription and the value of the Invoice (i.e., Quantity * Price). Name the calculated column InvoiceTotal. Order the results by Invoice value. 
+            var calInvoiceTotal =
+                from i in invoices
+                let InvoiceTotal = i.Price * i.Quantity
+                orderby InvoiceTotal descending
+                select new { i.PartDescription, InvoiceTotal };
+
+            //header
+            Console.WriteLine("\nCalculated the invoices value and sort it by the total, only selected the Part Description, Invoice Total");
+
+            // attempt to display the results of the above LINQ query
+            if (calInvoiceTotal.Any())
+                foreach (var item in calInvoiceTotal)
+                    Console.WriteLine(item);
+            else
+                Console.WriteLine("not found");
+
+
         }
     }
 }
