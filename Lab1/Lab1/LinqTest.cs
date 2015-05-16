@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-//Nick Wolf
+/*  Name: Nick Wolf
+ *  Lab #: 1
+ *  Due Date: May 18
+ *  Descriptions: This is a console base program that does awesome things with LINQ that query agaist the array invoices 
+ *                with things like filters using where cause and sorting using the orderby and then deplays the results 
+ *                through a foreach on the query stored on in a variable.
+*/
 
 namespace Lab1
 {
@@ -34,7 +40,7 @@ namespace Lab1
                 select i;
 
             //header
-            Console.WriteLine("\nInvoices when sorted by part description");
+            Console.WriteLine("\nPart a)Invoices when sorted by part description");
 
             // attempt to display the results of the above LINQ query
             if (partDescriptionSorted.Any())
@@ -52,7 +58,7 @@ namespace Lab1
                 select i;
             
             //header
-            Console.WriteLine("\nInvoices when sorted by price");
+            Console.WriteLine("\nPart b) Invoices when sorted by price");
 
             // attempt to display the results of the above LINQ query
             if (priceSort.Any())
@@ -70,7 +76,7 @@ namespace Lab1
                 select new { i.PartDescription, i.Quantity };
 
             //header
-            Console.WriteLine("\nInvoices when sorted by Quantity and select the Part Description and Quantity");
+            Console.WriteLine("\nPart c)Invoices when sorted by Quantity and select the Part Description and Quantity");
 
             // attempt to display the results of the above LINQ query
             if (sortQuantityandOnlyDescandQuantity.Any())
@@ -89,7 +95,7 @@ namespace Lab1
                 select new { i.PartDescription, InvoiceTotal };
 
             //header
-            Console.WriteLine("\nCalculated the invoices value and sort it by the total, only selected the Part Description, Invoice Total");
+            Console.WriteLine("\nPart d) Calculated the invoices value and sort it by the total, only selected the Part Description and Invoice Total");
 
             // attempt to display the results of the above LINQ query
             if (calInvoiceTotal.Any())
@@ -103,11 +109,11 @@ namespace Lab1
             var filerInvoiceTotals =
                 from i in calInvoiceTotal
                 where i.InvoiceTotal >= 200M && i.InvoiceTotal <= 500M
-                select i;
+                select i.InvoiceTotal;
 
             //header
             Console.WriteLine(string.Format(
-                "\nCalculated the invoices value and sort it by the total, only selected the Part Description, Invoice Total in the range {0:C}-{1:C} per month:",
+                "\nPart e) Calculated the invoices value and sort it by the total, only selected the Part Description, Invoice Total in the range {0:C}-{1:C} per month:",
                 200, 500));
 
             // attempt to display the results of the above LINQ query
