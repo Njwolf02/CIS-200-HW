@@ -34,7 +34,7 @@ namespace Lab1
                 select i;
 
             //header
-            Console.WriteLine("\nFirst Invoices when sorted by part description");
+            Console.WriteLine("\nInvoices when sorted by part description");
 
             // attempt to display the results of the above LINQ query
             if (partDescriptionSorted.Any())
@@ -43,6 +43,8 @@ namespace Lab1
             else
                 Console.WriteLine("not found");
 
+            
+            
             //b) Use LINQ to sort the Invoice objects by Price.
             var priceSort =
                 from i in invoices
@@ -50,16 +52,32 @@ namespace Lab1
                 select i;
             
             //header
-            Console.WriteLine("\nFirst Invoice when sorted by price");
+            Console.WriteLine("\nInvoices when sorted by price");
 
             // attempt to display the results of the above LINQ query
-            if (partDescriptionSorted.Any())
+            if (priceSort.Any())
                 foreach( var item in priceSort )
                 Console.WriteLine(item); 
             else
                 Console.WriteLine("not found");
 
             
+            
+            //c) Use LINQ to select the PartDescription and Quantity and sort the results by Quantity.
+            var sortQuantityandOnlyDescandQuantity =
+                from i in invoices
+                orderby i.Quantity
+                select new { i.PartDescription, i.Quantity };
+
+            //header
+            Console.WriteLine("\nInvoices when sorted by Quantity and select the Part Description and Quantity");
+
+            // attempt to display the results of the above LINQ query
+            if (sortQuantityandOnlyDescandQuantity.Any())
+                foreach (var item in sortQuantityandOnlyDescandQuantity)
+                    Console.WriteLine(item);
+            else
+                Console.WriteLine("not found");
 
         }
     }
