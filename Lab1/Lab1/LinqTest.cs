@@ -99,6 +99,23 @@ namespace Lab1
                 Console.WriteLine("not found");
 
 
+            //e) Using the results of the LINQ query in Part d, select the InvoiceTotals in the range $200 to $500."
+            var filerInvoiceTotals =
+                from i in calInvoiceTotal
+                where i.InvoiceTotal >= 200M && i.InvoiceTotal <= 500M
+                select i;
+
+            //header
+            Console.WriteLine(string.Format(
+                "\nCalculated the invoices value and sort it by the total, only selected the Part Description, Invoice Total in the range {0:C}-{1:C} per month:",
+                200, 500));
+
+            // attempt to display the results of the above LINQ query
+            if (filerInvoiceTotals.Any())
+                foreach (var item in filerInvoiceTotals)
+                    Console.WriteLine(item);
+            else
+                Console.WriteLine("not found");
         }
     }
 }
