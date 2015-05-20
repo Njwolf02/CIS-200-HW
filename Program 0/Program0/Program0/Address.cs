@@ -8,5 +8,10 @@ namespace Program0
 {
     class Address
     {
+        public string AddressOne { get; private set; }
+        public string AddressTwo { get; private set; }
+        public string City { get; private set; }
+        public string State { get; private set; }
+        private int ZipCode;
     }
 }
