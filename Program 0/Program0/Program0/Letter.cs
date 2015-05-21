@@ -9,7 +9,13 @@ namespace Program0
     //letter is a Parcel
     public class Letter : Parcel
     {
+        //Letter fix cost to send. 
         private decimal fixcost;
+        
+        // Precondition:  0 <= fixcost
+
+        // Postcondition: The letter is created with the specified values for
+        //                fix cost, its origin address, and destination address
         public Letter(Address originAddress, Address destinationAddress, decimal cost)
             :base (originAddress, destinationAddress)
         {
@@ -18,10 +24,15 @@ namespace Program0
 
         public decimal Fixcost
         {
+            // Precondition:  None
+            // Postcondition: The letter fix cost has been returned
             get
             {
                 return fixcost;
             }
+            // Precondition:  0 <= value
+            // Postcondition: The letter fix cost has been set to the
+            //                specified value
             set
             {
                 if (value >= 0)
@@ -35,13 +46,17 @@ namespace Program0
                 }
             }
         }
+        // Precondition:  fixcost enter in test program
+        // Postcondition: The letter fix cost has been returned
         public override decimal CalcCost()
         {
             return fixcost;
         }
+        // Precondition:  None
+        // Postcondition: A String with the letter's data has been returned
         public override string ToString()
         {
-            return string.Format("{0} \n\n{1}: {2:C}",
+            return string.Format("\n-------------\nNew letter:\n-------------\n{0} \n\n{1}: {2:C}\n",
                 base.ToString(), "Fix Cost", fixcost );
         }
     }

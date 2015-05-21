@@ -8,18 +8,23 @@ namespace Program0
 {
     public class Address
     {
-        //read only
-        public string Name { get; private set; }
-        //read only
-        public string AddressOne { get; private set; }
-        //read only
-        public string AddressTwo { get; private set; }
-        //read only
-        public string City { get; private set; }
-        //ready only
-        public string State { get; private set; }
-        //32 bit 0 to 4,294,967,295, inclusive
+        public const int MAX_ZIP = 99999; // Maximum ZipCode value
+        //Name of the ower of Address
+        public string Name { get; set; }
+        //The ower first Address
+        public string AddressOne { get; set; }
+        //The ower second Address
+        public string AddressTwo { get; set; }
+        //The city of the address
+        public string City { get; set; }
+        //The state of the address
+        public string State { get; set; }
+        //32 bit 0 to 4,294,967,295, inclusive for zipcode
         private uint zipCode;
+
+        //Precondtion:  0 <= oZip <= MAX_ZIP,
+        // Postcondition: The address is created with the specified values for
+        //                Name, addressOne, addressTwo, City, State, zip
         // five-parameter constructor
         public Address(string name, string addressOne, string addressTwo, string city, string state, uint zip)
         {
@@ -34,25 +39,36 @@ namespace Program0
         // property that gets and sets the zip code on the address
         public uint Zipcode
         {
+            // Precondition:  None
+            // Postcondition: The address's zip code
             get
             {
                 return zipCode;
             }// end get
+            
+            // Precondition:  0 <= value <= MAX_ZIP
+            // Postcondition: The address's zip code has been set to the
+            //                specified value
             set
             {
-                if ( value >= 0 && value <= 99999)
+                if ((value >= 0) && (value <= MAX_ZIP))
+                {
                     zipCode = value;
+                }
                 else
+                { 
                     throw new ArgumentOutOfRangeException("Zipcode",
                         value, "Zipcode must be >= 0");
+                }
             }//end set
         }// end property Zipcode
 
-        //Retuen string representation of Address object
+        // Precondition:  None
+        // Postcondition: A String with the address's data has been returned
         public override string ToString()
         {
             return string.Format(
-                "\n{0}: {1} \n{2}: {3} \n{4}: {5} \n{6} {7} {8} {9:D5}",
+                "\n{0}: {1} \n{2}: {3} \n{4}: {5} \n{6}: {7} {8} {9:D5}",
                 "Name", Name,
                 "Address One", AddressOne, 
                 "Addess Two", AddressTwo,
