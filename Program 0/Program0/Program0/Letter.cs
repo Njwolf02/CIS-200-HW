@@ -4,6 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*Program 0
+ * CIS 200-10
+ * Due: 5/21/2015
+ * By: Nick Wolf
+ * 
+ * The letter class is-a parcel, making it inherent the properties and method.
+ * Letter add fixcost for price of chargering to send the letter. Using the abstract method
+ * from parcel to find the fixed cost from the regioin it being ship from.
+ */
 namespace Program0
 {
     //letter is a Parcel

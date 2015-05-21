@@ -4,6 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*Program 0
+ * CIS 200-10
+ * Due: 5/21/2015
+ * By: Nick Wolf
+ * 
+ * This is a console app that shows a class hierarchy through a package-delivery. 
+ * This test the classes Addess, Parcel, and Letter. It place data into the class 
+ * address and letters. Then they are place that inside of a list with the object Parcel.
+ */
 namespace Program0
 {
     class testProgram

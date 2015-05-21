@@ -4,6 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*Program 0
+ * CIS 200-10
+ * Due: 5/21/2015
+ * By: Nick Wolf
+ * 
+ * The class Address allows users to create addresses and the owner of the address. It 
+ * Also format the string output.
+ */
 namespace Program0
 {
     public class Address
