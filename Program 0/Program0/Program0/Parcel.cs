@@ -8,10 +8,10 @@ namespace Program0
 {
     public abstract class Parcel
     {
-        public string OriginAddress { get; private set; }
-        public string DestinationAddress { get; private set; }
+        public Address OriginAddress { get; set; }
+        public Address DestinationAddress { get; set; }
 
-        public Parcel (string originAddress, string destinationAddress)
+        public Parcel (Address originAddress, Address destinationAddress)
         {
             OriginAddress = originAddress;
             DestinationAddress = destinationAddress;
@@ -19,7 +19,7 @@ namespace Program0
 
         public override string ToString()
         {
-            return string.Format("Origin Address:{0} \n Destination Address: {1}",
+            return string.Format("Origin Address:{0} \n\nDestination Address: {1}",
                 OriginAddress, DestinationAddress);
         }
 

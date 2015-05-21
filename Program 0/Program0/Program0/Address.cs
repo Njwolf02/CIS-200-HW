@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Program0
 {
-    class Address
+    public class Address
     {
         //read only
         public string Name { get; private set; }
@@ -40,7 +40,7 @@ namespace Program0
             }// end get
             set
             {
-                if (value >= 0)
+                if ( value >= 0 && value <= 99999)
                     zipCode = value;
                 else
                     throw new ArgumentOutOfRangeException("Zipcode",

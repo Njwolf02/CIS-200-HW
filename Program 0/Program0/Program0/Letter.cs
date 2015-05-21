@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Program0
 {
+    //letter is a Parcel
     public class Letter : Parcel
     {
         private decimal fixcost;
-        public Letter(string originAddress, string destinationAddress, decimal cost)
-            : base(originAddress, destinationAddress)
+        public Letter(Address originAddress, Address destinationAddress, decimal cost)
+            :base (originAddress, destinationAddress)
         {
             Fixcost = cost;
         }
@@ -40,7 +41,7 @@ namespace Program0
         }
         public override string ToString()
         {
-            return string.Format("Letter Cost: {0}\n{1}: {2:C}",
+            return string.Format("{0} \n\n{1}: {2:C}",
                 base.ToString(), "Fix Cost", fixcost );
         }
     }
