@@ -33,6 +33,7 @@ namespace Program0
             parcel.Add(letter2);
             parcel.Add(letter3);
             
+            //loop writes out Letters using tostring methods to format them.
             foreach ( Letter letter in parcel)
             {
                 Console.WriteLine(letter);
