@@ -1,4 +1,4 @@
-﻿// Program 0
+﻿// Program 1
 // CIS 200-10
 // Summer 2015
 // Due: 5/21/2015
@@ -34,12 +34,29 @@ namespace Prog0
             Letter l2 = new Letter(a2, a4, 1.25M); // Test Letter 2
             Letter l3 = new Letter(a4, a1, 1.75M); // Test Letter 3
 
+            GroundPackage gp1 = new GroundPackage(a1, a3, 10, 10, 10, 10);
+
+            NextDayAirPackage ndap1 = new NextDayAirPackage(a1, a3, 10, 10, 10, 10, 10);
+            NextDayAirPackage ndap2 = new NextDayAirPackage(a2, a4, 34, 34, 34, 101, 10);
+
+            TwoDayAirPackage tdap1 = new TwoDayAirPackage(a1, a3, 10, 10, 10, 10, TwoDayAirPackage.Delivery.Saver);
+            TwoDayAirPackage tdap2 = new TwoDayAirPackage(a2, a4, 34, 34, 34, 101, TwoDayAirPackage.Delivery.Early);
+
             List<Parcel> parcels = new List<Parcel>(); // Test list of parcels
 
             // Add test data to list
             parcels.Add(l1);
             parcels.Add(l2);
             parcels.Add(l3);
+
+            parcels.Add(gp1);
+
+            parcels.Add(ndap1);
+            parcels.Add(ndap2);
+
+            parcels.Add(tdap1);
+            parcels.Add(tdap2);
+
 
             // Display data
             Console.WriteLine("Program 0 - List of Parcels\n\n");
