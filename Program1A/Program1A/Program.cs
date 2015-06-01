@@ -2,10 +2,11 @@
 // CIS 200-10
 // Summer 2015
 // Due: 5/21/2015
-// By: Andrew L. Wright
+// By: Andrew L. Wright and Nick Wolf threw in test program.
 
 // File: Program.cs
 // Simple test program for initial Parcel classes
+
 
 using System;
 using System.Collections.Generic;

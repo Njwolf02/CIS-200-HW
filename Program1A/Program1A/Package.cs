@@ -1,4 +1,16 @@
-﻿using System;
+﻿// Program 1A
+// CIS 200-10
+// Summer 2015
+// Due: 5/31/2015
+// By: Nick Wolf
+
+// File: Package.cs
+
+// The Package class is a abstract derived class of Parcel
+// This classes stores a package size in inches that consisting of lenght,
+// width, height, and weight.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,11 +19,14 @@ using System.Threading.Tasks;
 
 public abstract class Package : Parcel
 {
-    private double packageLenght;
-    private double packageWidth;
-    private double packageHeight;
-    private double packageWeight;
+    private double packageLenght; // package Lenght in inches
+    private double packageWidth;  // package Width in inches
+    private double packageHeight; // package Height in inches
+    private double packageWeight; // package Height in inches
 
+    // Precondition:  lenght >= 0, width >= 0, height >= 0, weight >= 0, fee >= 0
+    // Postcondition: The NextDayAirPackage is created with the specified values for
+    //                origin address, destination address, lenght, width, height, weight,  and fee
     public Package (Address originAddress, Address destAddress,
         double lenght, double width, double height, double weight)
         : base (originAddress, destAddress)
@@ -23,12 +38,18 @@ public abstract class Package : Parcel
        
     }
 
-    protected double PackageLenght
+    protected double PackageLenght // Helper property
     {
+        // Precondition:  None
+        // Postcondition: The Package's packageLenght has been returned
         get
         {
             return packageLenght;
         }
+
+        // Precondition:  value >= 0
+        // Postcondition: The Package's packageLenght has been set to the
+        //                specified value
         set
         {
             if (value >= 0)
@@ -39,12 +60,17 @@ public abstract class Package : Parcel
         }
     }
 
-    protected double PackageWidth
+    protected double PackageWidth // Helper property
     {
+        // Precondition:  None
+        // Postcondition: The Package's packageWidth has been returned
         get
         {
             return packageWidth;
         }
+        // Precondition:  value >= 0
+        // Postcondition: The Package's packageWidth has been set to the
+        //                specified value
         set
         {
             if (value >= 0)
@@ -55,12 +81,18 @@ public abstract class Package : Parcel
         }
     }
 
-    protected double PackageHeight
+    protected double PackageHeight // Helper property
     {
+        // Precondition:  None
+        // Postcondition: The Package's packageHeight has been returned
         get
         {
             return packageHeight;
         }
+
+        // Precondition:  value >= 0
+        // Postcondition: The Package's packageHeight has been set to the
+        //                specified value
         set
         {
             if (value >= 0)
@@ -71,12 +103,18 @@ public abstract class Package : Parcel
         }
     }
 
-    protected double PackageWeight
+    protected double PackageWeight // Helper property
     {
+        // Precondition:  None
+        // Postcondition: The Package's packageWeight has been returned
         get
         {
             return packageWeight;
         }
+
+        // Precondition:  value >= 0
+        // Postcondition: The Package's packageWeight has been set to the
+        //                specified value
         set
         {
             if (value >= 0)
@@ -87,6 +125,8 @@ public abstract class Package : Parcel
         }
     }
 
+    // Precondition:  None
+    // Postcondition: A String with the Package's data has been returned
     public override string ToString()
     {;
     return String.Format("{5}Package Size:{5}PackageLenght: {1}{5}PackageHeight: {2}{5}PackageWidth: {3}{5}PackageWeight: {4}{5}{5}{0}"
