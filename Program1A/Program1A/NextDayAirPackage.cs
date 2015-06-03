@@ -28,7 +28,7 @@ class NextDayAirPackage : AirPackage
     {
         ExpressFee = fee;
     }
-    private decimal ExpressFee // Helper property
+    public decimal ExpressFee // Helper property
     {
         // Precondition:  None
         // Postcondition: The NextDayAirPackage's ExpressFee has been returned
@@ -37,7 +37,7 @@ class NextDayAirPackage : AirPackage
         // Precondition:  None
         // Postcondition: The NextDayAirPackage's ExpressFee cost has been set to the
         //                specified value
-        set;
+        private set;
     }
 
     // Precondition:  None
