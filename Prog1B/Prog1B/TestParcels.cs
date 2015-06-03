@@ -74,6 +74,7 @@ namespace Prog1B
             parcels.Add(tdap2);
             parcels.Add(tdap3);
 
+            //Display the Original List
             Console.WriteLine("Original List:");
             Console.WriteLine("====================");
             foreach (Parcel p in parcels)
