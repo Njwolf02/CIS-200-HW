@@ -81,21 +81,55 @@ namespace Prog1B
                 Console.WriteLine(p);
                 Console.WriteLine("====================");
             }
+            Console.WriteLine("Original List End");
             Pause();
 
             var parcelOrderByDesZip =
-                from a in parcels
-                select a;
+                from p in parcels
+                orderby p.DestinationAddress.Zip descending
+                select p;
 
-            Console.WriteLine("Select all Parcels and order by destination zip:");
+            Console.WriteLine("Select all Parcels and order by destination zip (descending):");
             Console.WriteLine("====================");
             foreach (var a in parcelOrderByDesZip)
             {
                 Console.WriteLine(a);
                 Console.WriteLine("====================");
             }
+            Console.WriteLine("Select all Parcels and order by destination zip END");
             Pause();
-         
+
+            var pacelOderByCost =
+                from p in parcels
+                orderby p.CalcCost() ascending
+                select p;
+
+            Console.WriteLine("Select all Parcels and order by cost (ascending):");
+            Console.WriteLine("====================");
+            foreach (var a in pacelOderByCost)
+            {
+                Console.WriteLine(a);
+                Console.WriteLine("====================");
+            }
+            Console.WriteLine("Select all Parcels and order by cost END");
+            Pause();
+
+            var pacelOderByParceltype =
+                from p in parcels
+                orderby p.GetType().ToString() ascending, p.CalcCost() descending
+                select p;
+
+            Console.WriteLine("Select all Parcels and order by Parcel type (ascending) and then cost (descending):");
+            Console.WriteLine("====================");
+            foreach (var a in pacelOderByParceltype)
+            {
+                Console.WriteLine(a);
+                Console.WriteLine("====================");
+            }
+            Console.WriteLine("Select all Parcels and order by Parcel type and then cost END");
+            Pause();
+
+
        }
 
         // Precondition:  None
