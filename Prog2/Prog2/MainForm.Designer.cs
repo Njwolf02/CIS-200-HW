@@ -36,9 +36,9 @@
             this.addressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.letterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MainTextBox = new System.Windows.Forms.TextBox();
             this.listAddressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listParcelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,14 +66,14 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -89,8 +89,9 @@
             // addressToolStripMenuItem
             // 
             this.addressToolStripMenuItem.Name = "addressToolStripMenuItem";
-            this.addressToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.addressToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addressToolStripMenuItem.Text = "Address";
+            this.addressToolStripMenuItem.Click += new System.EventHandler(this.addressToolStripMenuItem_Click);
             // 
             // letterToolStripMenuItem
             // 
@@ -107,6 +108,20 @@
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.reportToolStripMenuItem.Text = "Report";
             // 
+            // listAddressToolStripMenuItem
+            // 
+            this.listAddressToolStripMenuItem.Name = "listAddressToolStripMenuItem";
+            this.listAddressToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listAddressToolStripMenuItem.Text = "List Address";
+            this.listAddressToolStripMenuItem.Click += new System.EventHandler(this.listAddressToolStripMenuItem_Click);
+            // 
+            // listParcelsToolStripMenuItem
+            // 
+            this.listParcelsToolStripMenuItem.Name = "listParcelsToolStripMenuItem";
+            this.listParcelsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listParcelsToolStripMenuItem.Text = "List Parcels";
+            this.listParcelsToolStripMenuItem.Click += new System.EventHandler(this.listParcelsToolStripMenuItem_Click);
+            // 
             // MainTextBox
             // 
             this.MainTextBox.BackColor = System.Drawing.SystemColors.Control;
@@ -117,19 +132,6 @@
             this.MainTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.MainTextBox.Size = new System.Drawing.Size(353, 304);
             this.MainTextBox.TabIndex = 1;
-            // 
-            // listAddressToolStripMenuItem
-            // 
-            this.listAddressToolStripMenuItem.Name = "listAddressToolStripMenuItem";
-            this.listAddressToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.listAddressToolStripMenuItem.Text = "List Address";
-            // 
-            // listParcelsToolStripMenuItem
-            // 
-            this.listParcelsToolStripMenuItem.Name = "listParcelsToolStripMenuItem";
-            this.listParcelsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.listParcelsToolStripMenuItem.Text = "List Parcels";
-            this.listParcelsToolStripMenuItem.Click += new System.EventHandler(this.listParcelsToolStripMenuItem_Click);
             // 
             // MainForm
             // 

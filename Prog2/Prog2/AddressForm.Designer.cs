@@ -44,6 +44,16 @@
             btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
+            // btnCancel
+            // 
+            btnCancel.Location = new System.Drawing.Point(108, 170);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new System.Drawing.Size(69, 23);
+            btnCancel.TabIndex = 12;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnCancel_MouseDown);
+            // 
             // AdrNamelbl
             // 
             this.AdrNamelbl.AutoSize = true;
@@ -95,6 +105,8 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 5;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtBox_Validating);
+            this.txtName.Validated += new System.EventHandler(this.txtBox_Validated);
             // 
             // txtAddressOne
             // 
@@ -102,6 +114,8 @@
             this.txtAddressOne.Name = "txtAddressOne";
             this.txtAddressOne.Size = new System.Drawing.Size(100, 20);
             this.txtAddressOne.TabIndex = 6;
+            this.txtAddressOne.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdress_Validating);
+            this.txtAddressOne.Validated += new System.EventHandler(this.txtAddress_Validated);
             // 
             // txtAddressTwo
             // 
@@ -132,15 +146,7 @@
             this.btnOK.TabIndex = 11;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            btnCancel.Location = new System.Drawing.Point(108, 170);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new System.Drawing.Size(69, 23);
-            btnCancel.TabIndex = 12;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // cbState
             // 

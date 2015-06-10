@@ -62,6 +62,14 @@ namespace Prog2
             parcels.Add(tdap1);
             parcels.Add(tdap2);
             parcels.Add(tdap3);
+            Addresseslist.Add(a1);
+            Addresseslist.Add(a2);
+            Addresseslist.Add(a3);
+            Addresseslist.Add(a4);
+            Addresseslist.Add(a5);
+            Addresseslist.Add(a6);
+            Addresseslist.Add(a7);
+            Addresseslist.Add(a8);
         }
 
         List<Address> Addresseslist = new List<Address>();    // List of test address
@@ -103,6 +111,34 @@ namespace Prog2
             MainTextBox.AppendText(Environment.NewLine);
             MainTextBox.AppendText("Total Cost: ");
             MainTextBox.AppendText(calculateTotalCost.ToString("C"));
+        }
+
+        private void listAddressToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainTextBox.Clear();
+            foreach (Address address in Addresseslist)
+            {
+                MainTextBox.AppendText(Environment.NewLine);
+                MainTextBox.AppendText(address.ToString());
+                MainTextBox.AppendText(Environment.NewLine);
+            }
+            
+        }
+
+        private void addressToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddressForm addressForm = new AddressForm();
+            DialogResult addressResult;
+            addressResult = addressForm.ShowDialog();
+
+            if (addressResult == DialogResult.OK)
+            {
+                Address addAddress;
+                addAddress = new Address(addressForm.txtInputName, addressForm.txtInputAddressOne,
+                    addressForm.txtInputAddressTwo, addressForm.txtInputCity, addressForm.txtInputState,
+                    Convert.ToInt32(addressForm.txtInputZip));
+                Addresseslist.Add(addAddress);
+            }
         }
     }
 }
