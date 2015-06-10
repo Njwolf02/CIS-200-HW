@@ -12,27 +12,28 @@ namespace Prog2
 {
     public partial class MainForm : Form
     {
+        //Dr. Wright Provided test data
+        // Test Data - Magic Numbers OK
+        Address a1 = new Address("John Smith", "123 Any St.", "Apt. 45",
+            "Louisville", "KY", 40202); // Test Address 1
+        Address a2 = new Address("Jane Doe", "987 Main St.", "",
+            "Beverly Hills", "CA", 90210); // Test Address 2
+        Address a3 = new Address("James Kirk", "654 Roddenberry Way", "Suite 321",
+            "El Paso", "TX", 79901); // Test Address 3
+        Address a4 = new Address("John Crichton", "678 Pau Place", "Apt. 7",
+            "Portland", "ME", 04101); // Test Address 4
+        Address a5 = new Address("John Doe", "111 Market St.", "",
+            "Jeffersonville", "IN", 47130); // Test Address 5
+        Address a6 = new Address("Jane Smith", "55 Hollywood Blvd.", "Apt. 9",
+            "Los Angeles", "CA", 90212); // Test Address 6
+        Address a7 = new Address("Captain Robert Crunch", "21 Cereal Rd.", "Room 987",
+            "Bethesda", "MD", 20810); // Test Address 7
+        Address a8 = new Address("Vlad Dracula", "6543 Vampire Way", "Apt. 1",
+            "Bloodsucker City", "TN", 37210); // Test Address 8
+
         public MainForm()
         {
             InitializeComponent();
-            //Dr. Wright Provided test data
-            // Test Data - Magic Numbers OK
-            Address a1 = new Address("John Smith", "123 Any St.", "Apt. 45",
-                "Louisville", "KY", 40202); // Test Address 1
-            Address a2 = new Address("Jane Doe", "987 Main St.", "",
-                "Beverly Hills", "CA", 90210); // Test Address 2
-            Address a3 = new Address("James Kirk", "654 Roddenberry Way", "Suite 321",
-                "El Paso", "TX", 79901); // Test Address 3
-            Address a4 = new Address("John Crichton", "678 Pau Place", "Apt. 7",
-                "Portland", "ME", 04101); // Test Address 4
-            Address a5 = new Address("John Doe", "111 Market St.", "",
-                "Jeffersonville", "IN", 47130); // Test Address 5
-            Address a6 = new Address("Jane Smith", "55 Hollywood Blvd.", "Apt. 9",
-                "Los Angeles", "CA", 90212); // Test Address 6
-            Address a7 = new Address("Captain Robert Crunch", "21 Cereal Rd.", "Room 987",
-                "Bethesda", "MD", 20810); // Test Address 7
-            Address a8 = new Address("Vlad Dracula", "6543 Vampire Way", "Apt. 1",
-                "Bloodsucker City", "TN", 37210); // Test Address 8
 
             Letter letter1 = new Letter(a1, a2, 3.95M);                            // Letter test object
             Letter letter2 = new Letter(a3, a4, 4.25M);                            // Letter test object
@@ -51,10 +52,6 @@ namespace Prog2
             TwoDayAirPackage tdap3 = new TwoDayAirPackage(a6, a4, 12.0, 12.0, 6.0,  // Two Day test object
                 5.5, TwoDayAirPackage.Delivery.Saver);
 
-            List<Parcel> parcels;      // List of test parcels
-
-            parcels = new List<Parcel>();
-
             parcels.Add(letter1); // Populate list
             parcels.Add(letter2);
             parcels.Add(gp1);
@@ -65,6 +62,47 @@ namespace Prog2
             parcels.Add(tdap1);
             parcels.Add(tdap2);
             parcels.Add(tdap3);
+        }
+
+        List<Address> Addresseslist = new List<Address>();    // List of test address
+        
+        List<Parcel> parcels = new List<Parcel>();              // List of test parcels
+
+        private decimal calculateTotalCost
+        {
+            get
+            {
+                var calculateTotalCost =
+                    (from p in parcels
+                     select p.CalcCost()).Sum();
+
+                return calculateTotalCost;
+            }
+
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Name: Nick Wolf" + Environment.NewLine + "Class: CIS 200-10" + Environment.NewLine + "Assignment: Program 2" + Environment.NewLine + "Due Date: 6/11/2015");
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void listParcelsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainTextBox.Clear();
+            foreach (Parcel parcel in parcels)
+            {
+                MainTextBox.AppendText(Environment.NewLine);
+                MainTextBox.AppendText(parcel.ToString());
+            }
+
+            MainTextBox.AppendText(Environment.NewLine);
+            MainTextBox.AppendText("Total Cost: ");
+            MainTextBox.AppendText(calculateTotalCost.ToString("C"));
         }
     }
 }
