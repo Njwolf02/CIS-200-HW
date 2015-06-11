@@ -66,14 +66,16 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -89,14 +91,18 @@
             // addressToolStripMenuItem
             // 
             this.addressToolStripMenuItem.Name = "addressToolStripMenuItem";
-            this.addressToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addressToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.A)));
+            this.addressToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.addressToolStripMenuItem.Text = "Address";
             this.addressToolStripMenuItem.Click += new System.EventHandler(this.addressToolStripMenuItem_Click);
             // 
             // letterToolStripMenuItem
             // 
             this.letterToolStripMenuItem.Name = "letterToolStripMenuItem";
-            this.letterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.letterToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.L)));
+            this.letterToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.letterToolStripMenuItem.Text = "Letter";
             this.letterToolStripMenuItem.Click += new System.EventHandler(this.letterToolStripMenuItem_Click);
             // 
@@ -112,14 +118,18 @@
             // listAddressToolStripMenuItem
             // 
             this.listAddressToolStripMenuItem.Name = "listAddressToolStripMenuItem";
-            this.listAddressToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listAddressToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.A)));
+            this.listAddressToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.listAddressToolStripMenuItem.Text = "List Address";
             this.listAddressToolStripMenuItem.Click += new System.EventHandler(this.listAddressToolStripMenuItem_Click);
             // 
             // listParcelsToolStripMenuItem
             // 
             this.listParcelsToolStripMenuItem.Name = "listParcelsToolStripMenuItem";
-            this.listParcelsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.listParcelsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.P)));
+            this.listParcelsToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.listParcelsToolStripMenuItem.Text = "List Parcels";
             this.listParcelsToolStripMenuItem.Click += new System.EventHandler(this.listParcelsToolStripMenuItem_Click);
             // 

@@ -3,6 +3,10 @@
  *CIS 200-10
  *Due: 6/11/2015
  *By: Nick Wolf
+ *
+ *File: MainForm.cs
+ *This is the main form to display all the addresses and parcels, it also have a menu bar
+ *that can lead to other forms. Adds items from AddressForm and letterForm.
  */
 
 using System;
@@ -59,7 +63,7 @@ namespace Prog2
             TwoDayAirPackage tdap3 = new TwoDayAirPackage(a6, a4, 12.0, 12.0, 6.0,  // Two Day test object
                 5.5, TwoDayAirPackage.Delivery.Saver);
 
-            parcels.Add(letter1); // Populate list
+            parcels.Add(letter1); // Populate parcel list
             parcels.Add(letter2);
             parcels.Add(gp1);
             parcels.Add(gp2);
@@ -69,7 +73,7 @@ namespace Prog2
             parcels.Add(tdap1);
             parcels.Add(tdap2);
             parcels.Add(tdap3);
-            Addresseslist.Add(a1);
+            Addresseslist.Add(a1); //Populate Address List
             Addresseslist.Add(a2);
             Addresseslist.Add(a3);
             Addresseslist.Add(a4);
@@ -81,31 +85,41 @@ namespace Prog2
 
         List<Address> Addresseslist = new List<Address>();    // List of test address
         
-        List<Parcel> parcels = new List<Parcel>();              // List of test parcels
+        List<Parcel> parcels = new List<Parcel>();            // List of test parcels
 
+        //Method calculateTotalCost calculate the total cost of all Parcels in list.
         private decimal calculateTotalCost
         {
+            //Precondition: parcel list must have data
+            //Postcondition: Return cost of all parcels
             get
             {
-                var calculateTotalCost =
-                    (from p in parcels
-                     select p.CalcCost()).Sum();
-
-                return calculateTotalCost;
+                //Used LINQ because LINQ is awesome
+                var GetTotalCost =
+                    from p in parcels
+                     select p.CalcCost();
+                //.SUM() total LINQ Query
+                return GetTotalCost.Sum();
             }
 
         }
 
+        //Precondition: The about menu button must be click
+        //Postcondition: A Message Box appear
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Name: Nick Wolf" + Environment.NewLine + "Class: CIS 200-10" + Environment.NewLine + "Assignment: Program 2" + Environment.NewLine + "Due Date: 6/11/2015");
         }
 
+        //Precondition: The exit menu button must be click
+        //Postcondition: the program closes
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //Precondition: The menu button list Parcels must be click
+        //Postcondition: Display list of parcels into textbox
         private void listParcelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainTextBox.Clear();
@@ -122,6 +136,8 @@ namespace Prog2
             MainTextBox.AppendText(calculateTotalCost.ToString("C"));
         }
 
+        //Precondition: The menu button list address must be click
+        //Postcondition: Display list of addresses into text box
         private void listAddressToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainTextBox.Clear();
@@ -134,6 +150,8 @@ namespace Prog2
             
         }
 
+        //Precondition: The Address button is clicked
+        //Postcondition: A new Modal of AddressForm Appears
         private void addressToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddressForm addressForm = new AddressForm();
@@ -150,6 +168,8 @@ namespace Prog2
             }
         }
 
+        //Precondition: The letter button must be click
+        //Postcondition: A new modal of LetterForm appears
         private void letterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LetterForm letterForm = new LetterForm(Addresseslist);
