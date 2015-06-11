@@ -105,8 +105,8 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 5;
-            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtBox_Validating);
-            this.txtName.Validated += new System.EventHandler(this.txtBox_Validated);
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
+            this.txtName.Validated += new System.EventHandler(this.txtName_Validated);
             // 
             // txtAddressOne
             // 
@@ -114,7 +114,7 @@
             this.txtAddressOne.Name = "txtAddressOne";
             this.txtAddressOne.Size = new System.Drawing.Size(100, 20);
             this.txtAddressOne.TabIndex = 6;
-            this.txtAddressOne.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdress_Validating);
+            this.txtAddressOne.Validating += new System.ComponentModel.CancelEventHandler(this.txtAddress_Validating);
             this.txtAddressOne.Validated += new System.EventHandler(this.txtAddress_Validated);
             // 
             // txtAddressTwo
@@ -130,6 +130,8 @@
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(100, 20);
             this.txtCity.TabIndex = 8;
+            this.txtCity.Validating += new System.ComponentModel.CancelEventHandler(this.txtCity_Validating);
+            this.txtCity.Validated += new System.EventHandler(this.txtCity_Validated);
             // 
             // txtZip
             // 
@@ -137,6 +139,8 @@
             this.txtZip.Name = "txtZip";
             this.txtZip.Size = new System.Drawing.Size(100, 20);
             this.txtZip.TabIndex = 9;
+            this.txtZip.Validating += new System.ComponentModel.CancelEventHandler(this.txtZip_Validating);
+            this.txtZip.Validated += new System.EventHandler(this.txtZip_Validated);
             // 
             // btnOK
             // 
@@ -156,12 +160,15 @@
             "KY",
             "NY",
             "TX",
+            "IN",
             "WA",
             "CA"});
             this.cbState.Location = new System.Drawing.Point(77, 110);
             this.cbState.Name = "cbState";
             this.cbState.Size = new System.Drawing.Size(100, 21);
             this.cbState.TabIndex = 13;
+            this.cbState.Validating += new System.ComponentModel.CancelEventHandler(this.cbState_Validating);
+            this.cbState.Validated += new System.EventHandler(this.cbState_Validated);
             // 
             // AddressForm
             // 

@@ -140,5 +140,17 @@ namespace Prog2
                 Addresseslist.Add(addAddress);
             }
         }
+
+        private void letterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LetterForm letterForm = new LetterForm(Addresseslist);
+            DialogResult letterResult;
+            letterResult = letterForm.ShowDialog();
+
+            Letter addletter;
+            addletter = new Letter(Addresseslist[letterForm.OriginAddressIndex],
+                Addresseslist[letterForm.DesAddressIndex], letterForm.FixedCost);
+            parcels.Add(addletter);
+        }
     }
 }

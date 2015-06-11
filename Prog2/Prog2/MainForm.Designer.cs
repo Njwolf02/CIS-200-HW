@@ -96,8 +96,9 @@
             // letterToolStripMenuItem
             // 
             this.letterToolStripMenuItem.Name = "letterToolStripMenuItem";
-            this.letterToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.letterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.letterToolStripMenuItem.Text = "Letter";
+            this.letterToolStripMenuItem.Click += new System.EventHandler(this.letterToolStripMenuItem_Click);
             // 
             // reportToolStripMenuItem
             // 
