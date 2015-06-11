@@ -71,6 +71,8 @@
             this.txtFixedCost.Name = "txtFixedCost";
             this.txtFixedCost.Size = new System.Drawing.Size(121, 20);
             this.txtFixedCost.TabIndex = 3;
+            this.txtFixedCost.Validating += new System.ComponentModel.CancelEventHandler(this.txtFixedCost_Validating);
+            this.txtFixedCost.Validated += new System.EventHandler(this.txtFixedCost_Validated);
             // 
             // cbDesAddress
             // 
@@ -79,6 +81,8 @@
             this.cbDesAddress.Name = "cbDesAddress";
             this.cbDesAddress.Size = new System.Drawing.Size(121, 21);
             this.cbDesAddress.TabIndex = 4;
+            this.cbDesAddress.Validating += new System.ComponentModel.CancelEventHandler(this.cbDesAddress_Validating);
+            this.cbDesAddress.Validated += new System.EventHandler(this.cbDesAddress_Validated);
             // 
             // cbOriginAddress
             // 
@@ -87,6 +91,8 @@
             this.cbOriginAddress.Name = "cbOriginAddress";
             this.cbOriginAddress.Size = new System.Drawing.Size(121, 21);
             this.cbOriginAddress.TabIndex = 5;
+            this.cbOriginAddress.Validating += new System.ComponentModel.CancelEventHandler(this.cbOriginAddress_Validating);
+            this.cbOriginAddress.Validated += new System.EventHandler(this.cbOriginAddress_Validated);
             // 
             // btnCancel
             // 

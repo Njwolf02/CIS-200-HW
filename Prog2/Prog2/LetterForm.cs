@@ -54,13 +54,69 @@ namespace Prog2
             }
             set
             {
-                txtFixedCost.Text = value.ToString();
+                txtFixedCost.Text = Convert.ToString(value);
             }
         }
 
         ErrorProvider errorproviderOriginAddress = new ErrorProvider();//Error provider to validate the first combobox
         ErrorProvider errorproviderDestinationAddress = new ErrorProvider();//Error provider to validate the second combobox
         ErrorProvider errorproviderFixedCost = new ErrorProvider();//Error provider to validate the fixed cost box
+
+        private void cbOriginAddress_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbOriginAddress.SelectedIndex == cbDesAddress.SelectedIndex)
+            {
+                e.Cancel = true;
+                errorproviderOriginAddress.SetError(cbDesAddress, "The Origin and Destination Addresses cannot match.");
+            }
+            else if (cbOriginAddress.SelectedIndex == -1)
+            {
+                e.Cancel = true;
+                errorproviderOriginAddress.SetError(cbDesAddress, "Please select Address");
+            }
+        }
+
+        private void cbOriginAddress_Validated(object sender, EventArgs e)
+        {
+            errorproviderOriginAddress.SetError(cbOriginAddress, "");
+            errorproviderOriginAddress.Clear();
+        }
+
+        private void cbDesAddress_Validating(object sender, CancelEventArgs e)
+        {
+            if (cbDesAddress.SelectedIndex == cbOriginAddress.SelectedIndex)
+            {
+                e.Cancel = true;
+                errorproviderDestinationAddress.SetError(cbDesAddress, "The Origin and Destination Addresses cannot match.");
+            }
+            else if (cbDesAddress.SelectedIndex == -1)
+            {
+                e.Cancel = true;
+                errorproviderDestinationAddress.SetError(cbDesAddress, "Please select Address");
+            }
+        }
+
+        private void cbDesAddress_Validated(object sender, EventArgs e)
+        {
+            errorproviderDestinationAddress.SetError(cbDesAddress, "");
+            errorproviderDestinationAddress.Clear();
+        }
+
+        private void txtFixedCost_Validating(object sender, CancelEventArgs e)
+        {
+            int fixCost;
+            if(!int.TryParse(txtFixedCost.Text, out fixCost) || fixCost < 0)
+            {
+                e.Cancel = true;
+                errorproviderFixedCost.SetError(txtFixedCost, "Please enter a fixed cost greater than 0");
+            }
+        }
+
+        private void txtFixedCost_Validated(object sender, EventArgs e)
+        {
+            errorproviderDestinationAddress.SetError(cbDesAddress, "");
+            errorproviderFixedCost.Clear();
+        }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
@@ -72,9 +128,7 @@ namespace Prog2
         {
             if (e.Button == MouseButtons.Left)
                 this.DialogResult = DialogResult.Cancel;
-        }
-
-        
+        }                                
 
     }
 }

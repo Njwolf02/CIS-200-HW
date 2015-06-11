@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ *Program 2
+ *CIS 200-10
+ *Due: 6/11/2015
+ *By: Nick Wolf
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -104,8 +111,10 @@ namespace Prog2
             MainTextBox.Clear();
             foreach (Parcel parcel in parcels)
             {
+                MainTextBox.AppendText("-----------------------");
                 MainTextBox.AppendText(Environment.NewLine);
                 MainTextBox.AppendText(parcel.ToString());
+                MainTextBox.AppendText(Environment.NewLine);
             }
 
             MainTextBox.AppendText(Environment.NewLine);
@@ -147,10 +156,13 @@ namespace Prog2
             DialogResult letterResult;
             letterResult = letterForm.ShowDialog();
 
-            Letter addletter;
-            addletter = new Letter(Addresseslist[letterForm.OriginAddressIndex],
-                Addresseslist[letterForm.DesAddressIndex], letterForm.FixedCost);
-            parcels.Add(addletter);
+            if (letterResult == DialogResult.OK)
+            {
+                Letter addletter;
+                addletter = new Letter(Addresseslist[letterForm.OriginAddressIndex],
+                    Addresseslist[letterForm.DesAddressIndex], letterForm.FixedCost);
+                parcels.Add(addletter);
+            }
         }
     }
 }
