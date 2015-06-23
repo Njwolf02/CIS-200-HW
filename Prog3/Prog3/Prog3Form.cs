@@ -285,28 +285,27 @@ namespace Prog3
         private void saveAddressesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result;
-            string filename;
+            string fileName;
 
             using (SaveFileDialog fileChooser = new SaveFileDialog())
             {
                 fileChooser.CheckFileExists = false;
 
                 result = fileChooser.ShowDialog();
-                filename = fileChooser.FileName;
+                fileName = fileChooser.FileName;
             }
 
             if (result == DialogResult.OK)
             {
-                if (filename == string.Empty)
-                {
+                if (fileName == string.Empty)
+
                     MessageBox.Show("Invalid File Name", "Error", 
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
                 else
                 {
                     try
                     {
-                        stream = new FileStream(filename, 
+                        stream = new FileStream(fileName,
                             FileMode.Create, FileAccess.Write);
 
                         formattter.Serialize(stream, addressList);
@@ -314,12 +313,11 @@ namespace Prog3
                     }
                     catch (IOException)
                     {
-                        MessageBox.Show("Error Saving file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error Saving file.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-
             }
-
         }
 
         //Precondition: The user click on the open addresses button in the menu.
