@@ -75,115 +75,68 @@ namespace Prog4
             parcels.Add(tdap2);
             parcels.Add(tdap3);
 
-            Console.WriteLine("Original List:");
+            Console.WriteLine("Original List Cost:");
             Console.WriteLine("====================");
             foreach (Parcel p in parcels)
             {
-                Console.WriteLine(p);
+                Console.WriteLine("{0,-17} {1,8:C}", p.GetType().ToString(),
+                    p.CalcCost());
                 Console.WriteLine("====================");
             }
             Pause();
 
-            // Parcels by Destination Zip (desc)
-            var parcelsByDestZip =
-                from p in parcels
-                orderby p.DestinationAddress.Zip descending
-                select p;
-
-            Console.WriteLine("Parcels by Destination Zip (desc):");
+            parcels.Sort();
+            Console.WriteLine("Parcels by cost (ascending) (default):");
             Console.WriteLine("====================");
-
-            foreach (Parcel p in parcelsByDestZip)
+            foreach (Parcel p in parcels)
             {
-                if (VERBOSE)
-                    Console.WriteLine(p);
-                else
-                    Console.WriteLine("{0:D5}", p.DestinationAddress.Zip);
-
-                Console.WriteLine("====================");
-            }
-            Pause();
-
-            // Parcels by cost
-            var parcelsByCost =
-                from p in parcels
-                orderby p.CalcCost()
-                select p;
-
-            Console.WriteLine("Parcels by Cost:");
-            Console.WriteLine("====================");
-            foreach (Parcel p in parcelsByCost)
-            {
-                if (VERBOSE)
-                    Console.WriteLine(p);
-                else
-                    Console.WriteLine("{0,8:C}", p.CalcCost());
-
-                Console.WriteLine("====================");
-            }
-            Pause();
-
-            // Parcels by type and cost (desc)
-            var parcelsByTypeCost =
-                from p in parcels
-                orderby p.GetType().ToString(), p.CalcCost() descending
-                select p;
-
-            Console.WriteLine("Parcels by Type and Cost (desc):");
-            Console.WriteLine("====================");
-            foreach (Parcel p in parcelsByTypeCost)
-            {
-                if (VERBOSE)
-                    Console.WriteLine(p);
-                else
-                    Console.WriteLine("{0,-17} {1,8:C}", p.GetType().ToString(),
+                Console.WriteLine("{0,-17} {1,8:C}", p.GetType().ToString(),
                         p.CalcCost());
-
                 Console.WriteLine("====================");
             }
             Pause();
 
-            // Heavy AirPackages by Weight (desc)
-            var heavyAirPackagesByWeight =
-                from p in parcels
-                let ap = p as AirPackage // Downcast if AirPackage, null otherwise
-                where (ap != null) && ap.IsHeavy() // Safe because of short-circuit
-                orderby ap.Weight descending
-                select p;
-
-            // Alternate Solutions
-
-            //var heavyAirPackagesByWeight =
-            //    from p in parcels
-            //    where (p is AirPackage) && ((AirPackage)p).IsHeavy() // Safe downcast
-            //    orderby ((AirPackage)p).Weight descending            // Safe downcast
-            //    select p;
-
-            // AirPackages first
-            //var airPackages =
-            //    from p in parcels
-            //    where p is AirPackage
-            //    select (AirPackage) p;
-
-            // Filter from AirPackages
-            //var heavyAirPackagesByWeight =
-            //    from ap in airPackages
-            //    where ap.IsHeavy()
-            //    orderby ap.Weight descending
-            //    select ap;
-
-            Console.WriteLine("Heavy AirPackages by Weight (desc):");
+            Console.WriteLine("Original List Zip:");
             Console.WriteLine("====================");
-            foreach (AirPackage ap in heavyAirPackagesByWeight)
+            foreach (Parcel p in parcels)
             {
-                if (VERBOSE)
-                    Console.WriteLine(ap);
-                else
-                    Console.WriteLine("{0,-17} {1,4:F1}", ap.GetType().ToString(),
-                        ap.Weight);
-
+                Console.WriteLine("{0,-17} {1,8}", p.GetType().ToString(),
+                    p.DestinationAddress.Zip);
                 Console.WriteLine("====================");
             }
+            Pause();
+
+            parcels.Sort(new OrderByDesZip());
+            Console.WriteLine("Parcels by destination Zip (descending):");
+            Console.WriteLine("====================");
+            foreach (Parcel p in parcels)
+            {
+                Console.WriteLine("{0,-17} {1,8}", p.GetType().ToString(),
+                        p.DestinationAddress.Zip);
+                Console.WriteLine("====================");
+            }
+            Pause();
+
+            Console.WriteLine("Original List Type and Cost:");
+            Console.WriteLine("====================");
+            foreach (Parcel p in parcels)
+            {
+                Console.WriteLine("{0,-17} {1,8:c}", p.GetType().ToString(),
+                        p.CalcCost());
+                Console.WriteLine("====================");
+            }
+            Pause();
+
+            parcels.Sort(new SortByTypeThenCost());
+            Console.WriteLine("Parcels by Type (ascending) then cost (descending):");
+            Console.WriteLine("====================");
+            foreach (Parcel p in parcels)
+            {
+                Console.WriteLine("{0,-17} {1,8:c}", p.GetType().ToString(),
+                        p.CalcCost());
+                Console.WriteLine("====================");
+            }
+            Pause();
 
         }
 

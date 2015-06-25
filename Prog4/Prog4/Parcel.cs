@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public abstract class Parcel
+public abstract class Parcel : IComparable<Parcel>
 {
     // Precondition:  None
     // Postcondition: The parcel is created with the specified values for
@@ -57,5 +57,27 @@ public abstract class Parcel
     {
         return String.Format("Origin Address:{3}{0}{3}{3}Destination Address:{3}{1}{3}Cost: {2:C}",
             OriginAddress, DestinationAddress, CalcCost(), Environment.NewLine);
+    }
+
+    // Postcondition: When this < t2, method returns negative #
+    //                When this == t2, method returns zero
+    //                When this > t2, method returns positive #
+    public int CompareTo(Parcel p1)
+    {
+        // Implements correct handling of null values (in .NET, null less than anything)
+        if (this == null && p1 == null) // Both null?
+            return 0;
+
+        if (this == null) // only this is null?
+            return -1;
+
+        if (p1 == null) // only t2 is null?
+            return 1;
+
+        decimal costCompare = this.CalcCost() - p1.CalcCost(); // Cost difference?
+
+        if (costCompare != 0)
+            return this.CalcCost().CompareTo(p1.CalcCost());
+        else return 0;
     }
 }
