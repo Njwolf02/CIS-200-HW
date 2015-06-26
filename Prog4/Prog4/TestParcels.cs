@@ -2,7 +2,7 @@
 // CIS 200-10
 // Summer 2015
 // Due: 6/3/2015
-// By: Andrew L. Wright
+// By: Andrew L. Wright & Nick Wolf
 
 // File: TestParcels.cs
 // This is a simple, console application designed to exercise the Parcel hierarchy.
@@ -85,7 +85,7 @@ namespace Prog4
             }
             Pause();
 
-            parcels.Sort();
+            parcels.Sort();// Sort - uses natural order
             Console.WriteLine("Parcels by cost (ascending) (default):");
             Console.WriteLine("====================");
             foreach (Parcel p in parcels)
@@ -106,7 +106,7 @@ namespace Prog4
             }
             Pause();
 
-            parcels.Sort(new OrderByDesZip());
+            parcels.Sort(new OrderByDesZip());// Sort - uses specified Comparer class
             Console.WriteLine("Parcels by destination Zip (descending):");
             Console.WriteLine("====================");
             foreach (Parcel p in parcels)
@@ -127,7 +127,7 @@ namespace Prog4
             }
             Pause();
 
-            parcels.Sort(new SortByTypeThenCost());
+            parcels.Sort(new SortByTypeThenCost());// Sort - uses specified Comparer class
             Console.WriteLine("Parcels by Type (ascending) then cost (descending):");
             Console.WriteLine("====================");
             foreach (Parcel p in parcels)

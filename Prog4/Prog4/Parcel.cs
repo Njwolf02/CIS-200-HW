@@ -2,7 +2,7 @@
 // CIS 200-10
 // Summer 2015
 // Due: 5/21/2015
-// By: Andrew L. Wright
+// By: Andrew L. Wright & Nick Wolf
 
 // File: Parcel.cs
 // Parcel serves as the abstract base class of the Parcel hierachy.
@@ -59,9 +59,10 @@ public abstract class Parcel : IComparable<Parcel>
             OriginAddress, DestinationAddress, CalcCost(), Environment.NewLine);
     }
 
-    // Postcondition: When this < t2, method returns negative #
-    //                When this == t2, method returns zero
-    //                When this > t2, method returns positive #
+    // Precondition:  None
+    // Postcondition: When this < p1, method returns negative #
+    //                When this == p1, method returns zero
+    //                When this > p1, method returns positive #
     public int CompareTo(Parcel p1)
     {
         // Implements correct handling of null values (in .NET, null less than anything)
